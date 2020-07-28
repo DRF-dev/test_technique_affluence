@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all</title>
+</head>
+
+<body>
+    <ul>
+        <% data.forEach(d => { %>
+            <li>
+                Titre :
+                <%= d.titre %>
+            </li>
+            <li>
+                Description :
+                <%= d.description %>
+            </li>
+            <li>
+                Date d'écheance :
+                <%= d.date_echeance %>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test technique</title>
+</head>
+
+<body>
+    <form method="POST" action="/add">
+        <div>
+            <label for="titre">titre</label>
+            <input type="text" name="titre" placeholder="titre" />
+        </div>
+        <div>
+            <label for="description">description</label>
+            <input type="text" name="description" placeholder="description" />
+        </div>
+        <div>
+            <label for="date_echeance">date_echeance</label>
+            <input type="date" name="date_echeance" placeholder="date_echeance" />
+        </div>
+        <button type="submit">Ajouter</button>
+    </form>
+    <form method="POST" action="/modify?_method=PUT">
+        <div>
+            <label for="id">Id a modifier</label>
+            <input type="number" name="id" placeholder="id" />
+        </div>
+        <div>
+            <label for="titre">titre</label>
+            <input type="text" name="titre" placeholder="titre" />
+        </div>
+        <div>
+            <label for="description">description</label>
+            <input type="text" name="description" placeholder="description" />
+        </div>
+        <div>
+            <label for="date_echeance">date_echeance</label>
+            <input type="date" name="date_echeance" placeholder="date_echeance" />
+        </div>
+        <button type="submit">Modifier</button>
+    </form>
+    <form method="POST" action="/remove?_method=DELETE">
+        <div>
+            <label for="titre">titre</label>
+            <input type="text" name="titre" placeholder="titre" />
+        </div>
+        <button type="submit">Supprimé</button>
+    </form>
+    <form method="POST" action="/viewone">
+        <div>
+            <label for="id">Id à afficher</label>
+            <input type="number" name="id" placeholder="id">
+        </div>
+        <button type="submit">Afficher</button>
+    </form>
+    <ul>
+        <% data.forEach(d => { %>
+            <li>
+                <%= d.titre %>
+                    <%= d.description %>
+                        <%= d.date_echeance %>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>
