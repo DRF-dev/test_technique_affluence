@@ -4,9 +4,10 @@ import { addNotes, allNotes, modifyNotes, deleteNotes, oneNote } from "../contro
 const router = Router()
 
 router.get('/', allNotes)
-    .post('/add', addNotes)
-    .put('/modify', modifyNotes)
-    .delete('/remove', deleteNotes)
-    .post('/viewone', oneNote)
+    .post('/', addNotes)
+    .put('/:id', modifyNotes)
+    .delete('/:id', deleteNotes)
+    //.post('/:id', oneNote)
+    .get('/:id', oneNote)
 
 export default router

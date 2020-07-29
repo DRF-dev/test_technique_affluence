@@ -1,6 +1,7 @@
 import * as express from "express"
 import * as http from "http"
 import * as methodOverride from "method-override"
+import { join } from "path"
 import { urlencoded } from "body-parser"
 
 import db from "./model/db"
@@ -16,7 +17,11 @@ db.connect(err => {
 
 app.use(urlencoded({ extended: false }))
     .use(methodOverride('_method'))
-    .use('/', notes)
+    .use(express.static(join(__dirname, "client/build")))
+    .get('/', (req: express.Request, res: express.Response) => {
+        res.sendFile(join(__dirname, './client/build/index.html'))
+    })
+    .use('/api', notes)
 
 
 const PORT = 4000
